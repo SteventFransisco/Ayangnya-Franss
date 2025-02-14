@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary, Sayang! ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffc0cb, #ff69b4);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #fff;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            animation: fadeIn 3s infinite alternate;
+        }
+
+        .button {
+            background: #d81b60;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(216, 27, 96, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(216, 27, 96, 0.8);
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        .photo-frame {
+            position: relative;
+            display: inline-block;
+            flex: 0 0 auto;
+        }
+
+        .photo-frame img {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.6);
+            border: 4px solid #fff;
+            transition: transform 0.5s, box-shadow 0.5s;
+            cursor: pointer;
+        }
+
+        .photo-frame img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(255, 69, 180, 0.8);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 20, 147, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            font-size: 1rem;
+        }
+
+        .closing-message {
+            margin-top: 40px;
+            font-size: 1.8rem;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .closing-photo {
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="welcomeScreen">
+        <h1>Selamat Anniversary, Sayang! ❤️</h1>
+        <p class="message">Hari ini adalah hari istimewa kita, aku bersyukur memilikimu dalam hidupku 💕</p>
+        <button class="button" onclick="showGallery()">Ayangnya Franss 💖</button>
+    </div>
+
+    <div id="photoGallery" class="hidden">
+        <h1>Ayangnya Franss ❤️</h1>
+        <div class="gallery-container">
+            <div class="gallery">
+                <div class="photo-frame" onclick="showMessage(0)"><img src="1.jpg" alt="Foto 1">
+                    <div class="caption">Kamu adalah bintang di hatiku ✨</div>
+                </div>
+                <div class="photo-frame" onclick="showMessage(1)"><img src="2.jpg" alt="Foto 2">
+                    <div class="caption">Setiap detik bersamamu adalah anugerah 💖</div>
+                </div>
+                <div class="photo-frame" onclick="showMessage(2)"><img src="3.jpg" alt="Foto 3">
+                    <div class="caption">Aku mencintaimu lebih dari kata-kata 💕</div>
+                </div>
+                <div class="photo-frame" onclick="showMessage(3)"><img src="4.jpg" alt="Foto 4">
+                    <div class="caption">Kamu adalah kebahagiaanku 😘</div>
+                </div>
+            </div>
+        </div>
+        <button class="button" onclick="showClosing()">Penutup 💞</button>
+    </div>
+
+    <div id="closingScreen" class="hidden">
+        <h1>Sayangku, Terima Kasih ❤️</h1>
+        <p class="closing-message">Aku bersyukur setiap hari karena memilikimu dalam hidupku. Aku mencintaimu lebih dari
+            kata-kata yang bisa ungkapkan. 💖💕💘💞</p>
+        <div class="closing-photo"><img src="1.jpg" alt="Foto terakhir" width="300px"
+                style="border-radius: 15px; border: 4px solid #fff;"></div>
+    </div>
+
+    <script>
+        function showGallery() {
+            document.getElementById("welcomeScreen").style.display = "none";
+            document.getElementById("photoGallery").classList.remove("hidden");
+        }
+
+        function showClosing() {
+            document.getElementById("photoGallery").style.display = "none";
+            document.getElementById("closingScreen").classList.remove("hidden");
+        }
+
+        function showMessage(index) {
+            let captions = document.querySelectorAll(".caption");
+            captions[index].style.display = captions[index].style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+
+</html>
